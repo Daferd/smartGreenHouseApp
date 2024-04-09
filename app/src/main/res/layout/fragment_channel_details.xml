@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tool="http://schemas.android.com/apk/res-auto"
+    android:fillViewport="true"
+    android:orientation="vertical"
+    tools:context=".ui.channels.ChannelDetailsFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/channelNameTextViwe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Canal #"
+            android:textSize="32sp"
+            />
+
+        <Button
+            android:id="@+id/turnOnChannelButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/md_green_500"
+            android:text="Turn On"
+            android:layout_marginTop="16dp"/>
+
+        <Button
+            android:id="@+id/turnOffChannelButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/md_red_500"
+            android:text="Turn Off"/>
+
+        <Button
+            android:id="@+id/addTimeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/md_grey_500"
+            android:text="Horarios"/>
+
+
+    </LinearLayout>
+
+
+
+</androidx.core.widget.NestedScrollView>

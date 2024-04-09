@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.daferarevalo.espapp.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_navigation_home_to_temperatureFragment2"
+            app:destination="@id/temperatureFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_channelsFragment"
+            app:destination="@id/channelsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.daferarevalo.espapp.ui.profile.ProfileFragment"
+        android:label="@string/profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_navigation_profile_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/temperatureFragment"
+        android:name="com.daferarevalo.espapp.ui.TemperatureFragment"
+        android:label="fragment_temperature"
+        tools:layout="@layout/fragment_temperature" />
+    <fragment
+        android:id="@+id/channelsFragment"
+        android:name="com.daferarevalo.espapp.ui.channels.ChannelsFragment"
+        android:label="fragment_channels"
+        tools:layout="@layout/fragment_channels" >
+        <action
+            android:id="@+id/action_channelsFragment_to_channelDetailsFragment"
+            app:destination="@id/channelDetailsFragment" />
+        <action
+            android:id="@+id/action_channelsFragment_to_addChannelFragment"
+            app:destination="@id/addChannelFragment" />
+        <action
+            android:id="@+id/action_channelsFragment_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/editChannelFragment"
+        android:name="com.daferarevalo.espapp.ui.channels.EditChannelFragment"
+        android:label="fragment_edit_channel"
+        tools:layout="@layout/fragment_edit_channel" >
+        <argument
+            android:name="datetimer"
+            app:argType="com.daferarevalo.espapp.data.model.DatetimeServer"
+            app:nullable="true"
+            android:defaultValue="@null" />
+
+        <argument
+            android:name="track"
+            app:argType="boolean"
+            android:defaultValue="true" />
+        <action
+            android:id="@+id/action_editChannelFragment_to_timersFragment"
+            app:destination="@id/timersFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.daferarevalo.espapp.ui.auth.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_navigation_home"
+            app:destination="@id/navigation_home" />
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.daferarevalo.espapp.ui.auth.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_registerFragment_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/channelDetailsFragment"
+        android:name="com.daferarevalo.espapp.ui.channels.ChannelDetailsFragment"
+        android:label="fragment_channel_details"
+        tools:layout="@layout/fragment_channel_details" >
+        <argument
+            android:name="channelData"
+            app:argType="com.daferarevalo.espapp.data.model.ChannelServer"
+            app:nullable="true" />
+        <argument
+            android:name="track"
+            app:argType="boolean"
+            android:defaultValue="true" />
+        <action
+            android:id="@+id/action_channelDetailsFragment_to_timersFragment"
+            app:destination="@id/timersFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/addChannelFragment"
+        android:name="com.daferarevalo.espapp.ui.channels.AddChannelFragment"
+        android:label="fragment_add_channel"
+        tools:layout="@layout/fragment_add_channel" >
+        <argument
+            android:name="enabledChannels"
+            app:argType="integer"
+            android:defaultValue="-1" />
+        <action
+            android:id="@+id/action_addChannelFragment_to_channelsFragment"
+            app:destination="@id/channelsFragment" />
+    </dialog>
+    <fragment
+        android:id="@+id/timersFragment"
+        android:name="com.daferarevalo.espapp.ui.timers.TimersFragment"
+        android:label="fragment_timers"
+        tools:layout="@layout/fragment_timers" >
+        <action
+            android:id="@+id/action_timersFragment_to_editChannelFragment"
+            app:destination="@id/editChannelFragment" />
+        <argument
+            android:name="channel"
+            app:argType="integer"
+            android:defaultValue="-1" />
+        <action
+            android:id="@+id/action_timersFragment_to_channelsFragment"
+            app:destination="@id/channelsFragment" />
+
+    </fragment>
+
+
+
+</navigation>
